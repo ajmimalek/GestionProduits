@@ -1,4 +1,5 @@
 ﻿using System;
+using GP.Domain;
 
 namespace GP.Console
 {
@@ -6,7 +7,16 @@ namespace GP.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello Bitch :)");
+            Product product = new Product()
+            {
+                ProductId = 1,
+                Name = "Batata",
+                Description = "tetgarmech",
+                Price = 0.2,
+                Quantity = 10,
+                DateProd = DateTime.Today
+            };
+            System.Console.WriteLine(product);
         }
     }
 }

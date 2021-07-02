@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GP.Domain
 {
-    class Product : Concept
+     public class Product : Concept
     {
         public int ProductId { get; set; }
         public string Name { get; set; }

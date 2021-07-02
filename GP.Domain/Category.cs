@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GP.Domain
 {
-    class Category : Concept
+    public class Category : Concept
     {
         public int CategoryId  { get; set; }
         public string Name { get; set; }
