@@ -20,7 +20,7 @@ namespace GP.Domain
         public override void GetDetails()
         {
             Console.WriteLine($"{nameof(ProductId)}={ProductId.ToString()}, {nameof(Name)}={Name}, {nameof(Price)}={Price.ToString()}, {nameof(Quantity)}={Quantity.ToString()}, {nameof(Description)}={Description}," +
-                $" {nameof(DateProd)}={DateProd.ToString()}, {nameof(category)}={category}");
+                $" {nameof(DateProd)}={DateProd.ToString()}");
         }
     }
 }
