@@ -15,7 +15,7 @@ namespace GP.Domain
             get { return password; }
             set
             {
-                if (value.Length < 5 && value.Length > 20)
+                if (value.Length < 5 || value.Length > 20)
                 {
                     Console.WriteLine("Votre mot de passe doit contenir entre 5 et 20 caractéres");
                 }
@@ -63,10 +63,10 @@ namespace GP.Domain
         //Override abstract method
         public override void GetDetails()
         {
-            Console.WriteLine("ID : " + Id + " UserName : " + UserName + " Password : " + Password + " Confirm Password : " + ConfirmPassword + " Email : " + Email + " IsApproved : " + IsApproved + " DateCreated : " + DateCreated);
+            Console.WriteLine("ID : " + Id + " UserName : " + UserName + " Password : " + Password + " Confirm Password : " + ConfirmPassword + " Email : " + Email + " IsApproved : " + IsApproved + " DateCreated : " + DateCreated + " Products : " + products);
         }
         #region Partie 4 : Polymorphisme
-        bool Login(string username, string pwd)
+        public bool Login(string username, string pwd)
         {
             if (username.Equals(this.UserName) && pwd.Equals(this.Password))
             {
@@ -84,9 +84,84 @@ namespace GP.Domain
             return false;
         } */
         //Méthode qui va remplacer les 2 méthodes : Paramétre email optionnel
-        bool Login(string username, string pwd, string email=null)
+        public bool Login(string username, string pwd, string email = null)
         {
-            
+            if (email == null)
+            {
+                //Login(string username, string pwd)
+                return username.Equals(this.UserName) && pwd.Equals(this.Password);
+            }
+            else
+            {
+                //Login(string username, string pwd, string email)
+                return username.Equals(this.UserName) && pwd.Equals(this.Password) && email.Equals(this.Email);
+            }
+        }
+        #endregion
+        #region Partie 5 : Collections / Itérations / Structures conditionnelles
+        public void GetProducts(string filterType, string filterValue)
+        {
+            if (products == null)
+            {
+                Console.WriteLine("Aucun produit trouvable");
+            }
+            else
+            {
+                switch (filterType)
+                {
+                    case "DateProd":
+                        foreach (Product product in products)
+                        {
+                            if (product.DateProd.Equals(filterValue))
+                            {
+                                Console.WriteLine("DateProd Product : ");
+                                product.GetDetails();
+                            }
+                        }
+                        break;
+                    case "Description":
+                        foreach (Product product in products)
+                        {
+                            if (product.Description.Equals(filterValue))
+                            {
+                                Console.WriteLine("Description Product : ");
+                                product.GetDetails();
+                            }
+                        }
+                        break;
+                    case "Name":
+                        foreach (Product product in products)
+                        {
+                            if (product.Name.Equals(filterValue))
+                            {
+                                Console.WriteLine("Name Product : ");
+                                product.GetDetails();
+                            }
+                        }
+                        break;
+                    case "Price":
+                        foreach (Product product in products)
+                        {
+                            if (product.Price.Equals(filterValue))
+                            {
+                                Console.WriteLine("Price Product : ");
+                                product.GetDetails();
+                            }
+                        }
+                        break;
+                    case "Price":
+                        foreach (Product product in products)
+                        {
+                            if (product.Price.Equals(filterValue))
+                            {
+                                Console.WriteLine("Price Product : ");
+                                product.GetDetails();
+                            }
+                        }
+                        break;
+                    default:
+                }
+            }
         }
         #endregion
     }

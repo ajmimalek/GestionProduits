@@ -36,7 +36,15 @@ namespace GP.Console
             System.Console.WriteLine("A Method with passsword : " + P1.Password + " and confirmation : " + P1.ConfirmPassword + " is " + P1.IsApproved);
             System.Console.WriteLine("We must here pass the object as parameter to change the values");
             #endregion
-
+            #region Partie 3 : Encapsulation
+            System.Console.WriteLine("Entrer une nouvelle mot de passe");
+            P1.Password = System.Console.ReadLine();
+            System.Console.WriteLine("confirmer votre mot de passe");
+            P1.ConfirmPassword = System.Console.ReadLine();
+            #endregion
+            #region Partie 4 : Polymorphisme
+            System.Console.WriteLine(P1.Login("ajmimalek", "malek55"));
+            #endregion
         }
     }
 }
